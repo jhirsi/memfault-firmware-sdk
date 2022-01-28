@@ -15,7 +15,16 @@
 #include <init.h>
 #include <kernel.h>
 
+#if defined(CONFIG_POSIX_API)
+#include <posix/arpa/inet.h>
+#include <posix/unistd.h>
+#include <posix/netdb.h>
+#include <posix/poll.h>
+#include <posix/sys/socket.h>
+#else
 #include <net/socket.h>
+#endif
+
 #include <net/tls_credentials.h>
 #include <zephyr.h>
 
